@@ -1,4 +1,35 @@
+
 body {
-    background-color: #000000;
-    color: #FFFFFF;
+    background-color: #676767;
+}
+
+#chart_div {
+    flex-flow: row wrap;
+display:flex;
+margin-left: 50px;
+margin-right: auto;
+width: 400px;
+margin-bottom: 25px;
+
+}
+
+#chart_div2 {
+display:block;
+margin-top: -80px;
+margin-bottom: 25px;
+
+
+
+}
+
+
+#timeline {
+    display:block;
+    margin-top: 50px;
+
+}
+
+#table_div {
+    display: block;
+    margin-top: -270px;
 }
