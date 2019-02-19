@@ -9,12 +9,16 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <!-- link naar externe font -->
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
-    google.charts.load('current', { 'packages': ['gauge'] });
-    google.charts.setOnLoadCallback(drawChart);
 
-    function drawChart() {
+    // Chart #1 - Gauge - Chart #1 - Gauge - Chart #1 - Gauge - Chart #1 - Gauge - Chart #1 - Gauge - Chart #1 - Gauge - 
+
+    google.charts.load('current', { 'packages': ['gauge'] });
+    google.charts.setOnLoadCallback(drawChart1);
+
+    function drawChart1() {
 
       var data = google.visualization.arrayToDataTable([
         ['Label', 'Aantal'],
@@ -22,7 +26,12 @@
       ]);
 
       var options = {
-        width: 300, height: 300,
+
+        chartArea: {
+          left: 40,
+          width: '100%'
+        },
+        width: '100%',
         minorTicks: 5,
 
       };
@@ -31,6 +40,8 @@
 
       chart.draw(data, options);
 
+      //Chart #2 - Linechart - Chart #2 - Linechart - Chart #2 - Linechart - Chart #2 - Linechart - Chart #2 - Linechart
+
       google.charts.load('current', { packages: ['corechart', 'line'] });
       google.charts.setOnLoadCallback(drawBasic);
 
@@ -38,7 +49,7 @@
 
         var data = new google.visualization.DataTable();
         data.addColumn('number', 'X');
-        data.addColumn('number', 'M/S');
+        data.addColumn('number', 'Miles/Second');
 
         data.addRows([
           [0, 0], [20, 1.0], [40, 1.3], [60, 1.7], [80, 1.8], [100, 1.9],
@@ -51,12 +62,42 @@
         ]);
 
         var options = {
+
+          legend: {
+            textStyle: { color: 'black', fontSize: 22, italic: true },
+            position: 'top',
+            alignment: 'center',
+            orientation: 'vertical',
+          },
+
+
+
+
+
           hAxis: {
-            title: 'Time in seconds'
+            title: 'Time in seconds',
+            titleTextStyle: {
+              color: "#000",
+              fontName: "sans-serif",
+              fontSize: 22,
+              bold: false,
+              italic: false
+            }
           },
           vAxis: {
-            title: 'Speed in miles per second'
+            title: 'Speed in miles per second',
+            titleTextStyle: {
+              color: "#000",
+              fontName: "sans-serif",
+              fontSize: 22,
+              bold: false,
+              italic: false
+            }
+
           }
+
+
+
         };
 
         var chart = new google.visualization.LineChart(document.getElementById('chart_div2'));
@@ -66,9 +107,11 @@
 
       }
 
+      //Chart #3 - Timeline - Chart #3 - Timeline - Chart #3 - Timeline - Chart #3 - Timeline - Chart #3 - Timeline -
+
       google.charts.load("current", { packages: ["timeline"] });
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
+      google.charts.setOnLoadCallback(drawChart2);
+      function drawChart2() {
         var container = document.getElementById('timeline');
         var chart = new google.visualization.Timeline(container);
         var dataTable = new google.visualization.DataTable();
@@ -79,49 +122,73 @@
         dataTable.addColumn({ type: 'date', id: 'End' });
 
         dataTable.addRows([
-        [ '1',  'Stage one',    new Date(0,0,0,12,0,0),  new Date(0,0,0,12,2,42) ],
-      [ '1',   'Stage two',          new Date(0,0,0,12,2,42), new Date(0,0,0,12,9,19) ]]);
-          var options = {
-      timeline: { groupByRowLabel: true }
-    };
+          ['1', 'Stage one', new Date(0, 0, 0, 12, 0, 0), new Date(0, 0, 0, 12, 2, 42)],
+          ['1', 'Stage two', new Date(0, 0, 0, 12, 2, 42), new Date(0, 0, 0, 12, 9, 19)]]);
+        var options = {
+          timeline: { groupByRowLabel: true }
+
+
+        };
+
 
         chart.draw(dataTable);
       }
 
-            google.charts.load('current', {'packages':['table']});
-      google.charts.setOnLoadCallback(drawTable);
+      // Chart #4 - Table - Chart #4 - Table - Chart #4 - Table - Chart #4 - Table - Chart #4 - Table - 
 
-      function drawTable() {
+      google.charts.load('current', { 'packages': ['table'] });
+      google.charts.setOnLoadCallback(drawTable2);
+
+      function drawTable2() {
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Technical overview');
         data.addColumn('number', 'Metric');
         data.addColumn('number', 'Freedom units');
         data.addRows([
-          ['Height',  {v: 70, f: '70 m'}, {v:229.6, f: '229.6 ft'}],
-          ['Mass',  {v: 549954, f: '549 054 kg'}, {v:1207920, f: '1 207 920 lb'}],
-          ['Diameter',  {v: 3.7, f: '3.7 m'}, {v:12, f: '12 ft'}],
-          ['Payload to LEO',  {v: 22800, f: '22 800 kg'}, {v:50265, f: '50 265 lb'}],
-          ['Payload to Mars',  {v: 4020, f: '4 020 kg'}, {v:8860, f: '8,860 lb'}],
-          ['Payload to GTO',  {v: 8300, f: '8 300 kg'}, {v:18300, f: '18 300 lb'}],
+          ['Height', { v: 70, f: '70 m' }, { v: 229.6, f: '229.6 ft' }],
+          ['Mass', { v: 549954, f: '549 054 kg' }, { v: 1207920, f: '1 207 920 lb' }],
+          ['Diameter', { v: 3.7, f: '3.7 m' }, { v: 12, f: '12 ft' }],
+          ['Payload to LEO', { v: 22800, f: '22 800 kg' }, { v: 50265, f: '50 265 lb' }],
+          ['Payload to Mars', { v: 4020, f: '4 020 kg' }, { v: 8860, f: '8,860 lb' }],
+          ['Payload to GTO', { v: 8300, f: '8 300 kg' }, { v: 18300, f: '18 300 lb' }],
 
 
         ]);
 
         var table = new google.visualization.Table(document.getElementById('table_div'));
 
-        table.draw(data, {showRowNumber: false, width: '100%', height: '100%'});
+        table.draw(data, { showRowNumber: false, width: '100%', height: '100%' });
       }
+
+      $(window).resize(function () {
+        drawChart1();
+        drawBasic();
+        drawChart2();
+        drawTable();
+      });
+
     }
   </script>
 </head>
 
 <body>
-  <div id="chart_div" style="width: 400px; height: 400px;"></div>
-  <div id="chart_div2" style="width: 400px; height: 400px;"></div>
-  <div id="timeline" style="width: 400px; height: 400px;"></div>
-  <div id="table_div" style="width: 400px; height: 400px;"></div>
+  <div class="container">
+
+   
 
 
+    <div id="chart_div" class="item" style="width: 400px; height: 400px;">
+      
+    </div>
+
+
+    <div id="chart_div2" class="item" style="width: 400px;  height: 400px;"></div>
+
+    <div id="timeline" class="item" style="width: 400px; height: 400px;"></div>
+
+    <div id="table_div" class="item" style="width: 400px; height: 400px;"></div>
+
+  </div>
 </body>
 
 </html>
