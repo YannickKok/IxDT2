@@ -34,6 +34,8 @@ header img {
     max-height: 200px;
     border: 1px solid #333333;
     border-radius: 5px;
+    opacity: 0.75;
+
 
 }
 
@@ -50,7 +52,7 @@ body {
     width: 96% !important;
     margin-left: auto!important;
     margin-right: auto!important;
-
+    opacity: 0.75;
     margin-bottom: 10px;
 
 
