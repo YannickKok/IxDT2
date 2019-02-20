@@ -10,15 +10,39 @@
   margin: 0;
   display: flex;
   flex-flow: row wrap;
+  flex-wrap: nowrap;
 
 }
 
+header {
+    max-height:300px;
+    display: block;
+    width:100%;
+    
+
+}
+
+header img {
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    width: 96%;
+    max-width: 481px;
+    max-height: 200px;
+    border: 1px solid #333333;
+    border-radius: 5px;
+
+}
 
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0 auto;
     background-color: #676767;
     max-width: 1920px;
+    background-image: url(images/background.jpeg);
 }
 
 
@@ -26,7 +50,8 @@ body {
     width: 96% !important;
     margin-left: auto!important;
     margin-right: auto!important;
-    float: left!important;
+
+    margin-bottom: 10px;
 
 
 
@@ -267,6 +292,7 @@ h1 {
         display:flex;
     }
 
+
     #chart_div {
     margin-left: auto;
     margin-right: auto;
@@ -282,6 +308,10 @@ h1 {
 	.item {
         width: 24.2%!important;
         margin-top: 10px;
+        margin-left: auto!important;
+        margin-right: auto!important;
+
+
 
     }
     
